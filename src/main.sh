@@ -1,7 +1,10 @@
 
+module clip
+
 VERSION="Cask 0.1.0 (2022-11-16)"
 
 main() {
+  local host
   local ssh_user
 
   if [ $# -eq 0 ]; then
@@ -21,5 +24,9 @@ main() {
 
   ssh_user=${user:-root}
 
-  echo "${ssh_user}@${ssh_host}" -p "${ssh_port:-22}"
+  if [ -n "${password}" ]; then
+    clip "${password}"
+  fi
+
+  echo "${ssh_user}@${host}" -p "${ssh_port:-22}"
 }
