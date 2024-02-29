@@ -1,10 +1,10 @@
 
-## ===
-## Dev
-## ===
+## ====
+## Mush
+## ====
 
-build:
-	@mush build
+.DEFAULT:
+	@mush $@
 
 ## ====
 ## Test
